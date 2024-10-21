@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import "./ChatBox.css"
 import assets from '../../assets/assets'
 import { AppContext } from '../../context/AppContext'
-import { arrayUnion, doc, getDoc, onSnapshot, Timestamp, updateDoc } from 'firebase/firestore'
+import { arrayUnion, doc, getDoc, onSnapshot, timestamp, updateDoc } from 'firebase/firestore'
 import { db } from '../../config/firebase'
 import { toast } from 'react-toastify'
 
