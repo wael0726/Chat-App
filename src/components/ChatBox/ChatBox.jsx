@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import "./ChatBox.css"
 import assets from '../../assets/assets'
 import { AppContext } from '../../context/AppContext'
@@ -144,8 +144,8 @@ const ChatBox = () => {
     </div>
   )
   : <div className='chat-welcome'>
-    <img src={assets.logo_icon} alt="" />
-    <p>Chat Anytime Anywhere</p>
+    <img src={assets.logo_big} alt="" />
+    <p>Chat Anytime, Anywhere.</p>
   </div>
 }
 

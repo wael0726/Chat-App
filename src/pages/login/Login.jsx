@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import "./Login.css"
 import assets from '../../assets/assets'
-import { signup, login } from '../../config/firebase'
+import { signup, login, resetPass } from '../../config/firebase'
 
 const Login = () => {
 
@@ -22,7 +22,7 @@ const Login = () => {
 
   return (
     <div className='login'>
-      <img src={assets.logo_big} alt="" className='logo'/>
+      <img src={assets.logo_big} alt="" className='logo logo-floating'/>
       <form onSubmit={onSubmitHandler} className="login-form">
         <h2>
           {currState}
@@ -49,6 +49,13 @@ const Login = () => {
           Create an account <span onClick={() => setCurrState("Sign up")}>Click here</span> 
         </p>
           }
+
+          {currState === "Login" 
+          ? <p className="login-toggle">
+          Forgot password ? <span onClick={() => resetPass(email)}>Reset here</span> 
+          </p>
+          : null
+           }
         </div>
       </form>
       

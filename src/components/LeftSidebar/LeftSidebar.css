@@ -1,5 +1,5 @@
 .ls{
-    background: black;
+    background: #03045e;
     color: white;
     height: 100vh;
 }
@@ -15,7 +15,7 @@
 }
 
 .ls-nav .logo{
-    max-width: 140px;
+    max-width: 70px;
 }
 
 .ls-nav .menu img{

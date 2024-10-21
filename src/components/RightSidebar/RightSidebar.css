@@ -1,6 +1,6 @@
 .rs{
     color: white;
-    background: black;
+    background: #03045e;
     position: relative;
     height: 100vh;
     overflow-y: scroll;
@@ -75,8 +75,5 @@
     cursor: pointer;
 }
 
-img.dot {             
-    width: 15px !important;
-}
 
 

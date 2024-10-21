@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import "./ProfileUpdate.css"
 import assets from '../../assets/assets'
 import { onAuthStateChanged } from 'firebase/auth';
@@ -77,7 +77,7 @@ const ProfileUpdate = () => {
       <div className="profile-container">
         <form onSubmit={profileUpdate}>
           <h3>
-            Profile details
+            Edit your profile
           </h3>
           <label htmlFor="avatar">
             <input onChange={(e) => setImage(e.target.files[0])} type="file" id='avatar' accept='.png, .jpg, .jfif, webp, jpej' hidden/>

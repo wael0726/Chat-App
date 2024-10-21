@@ -129,6 +129,7 @@
 
 .chat-welcome img{
     width: 60px;
+    animation: float 3s ease-in-out infinite;
 }
 
 .chat-welcome p{
@@ -136,3 +137,16 @@
     font-weight: 500;
     color: black;
 }
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
