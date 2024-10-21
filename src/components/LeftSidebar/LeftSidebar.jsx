@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import "./LeftSidebar.css"
 import assets from '../../assets/assets'
 import { useNavigate } from 'react-router-dom'
-import {collection, getDocs, query, where} from "firebase/firestore"
+import {arrayUnion, collection, getDocs, query, serverTimestamp, setDoc, updateDoc, where, doc} from "firebase/firestore"
 import {db} from "../../config/firebase"
 import { AppContext } from '../../context/AppContext'
 
@@ -38,6 +38,26 @@ const LeftSidebar = () => {
         }
 
     const addChat = async () => {
+        const messageRef = collection(db, "messages");
+        const chatsRef = collection(db, "chats");
+        try {
+            const newMessageRef = doc(messageRef);
+            await setDoc(newMessageRef, {
+                createAt:serverTimestamp(),
+                messages:[]
+            })
+            await updateDoc(doc(chatsRef, user.id),{
+                chatsData:arrayUnion({
+                    messageId:newMessageRef.id,
+                    lastMessage:"",
+                    rId:userData.id,
+                    updateAt:Date.now(),
+                    messageSeen:true
+                })
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
   return (
