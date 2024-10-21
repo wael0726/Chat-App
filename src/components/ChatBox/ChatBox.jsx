@@ -97,20 +97,24 @@ const ChatBox = () => {
     useEffect(() => {
         if (messagesId) {
             const unSub = onSnapshot(doc(db,"messages", messagesId), (res) => {
-                setMessages(res.data().messages.reverse())
+                setMessages(res.data()?.messages.reverse() || []);
             })
             return () => {
                 unSub();
             }
+        } else {
+            setMessages([]);
         }
-    }, [messagesId])
+    }, [messagesId, chatUser])
 
   return chatUser ? (
     <div className='chat-box'>
         <div className="chat-user">
             <img src={chatUser.userData.avatar} alt="" />
             <p>
-                {chatUser.userData.name}
+                {chatUser.userData.name} {Date.now()-chatUser.userData.lastSeen <= 70000 
+                ? <img className='dot' src={assets.green_dot} alt=''/>
+                : null}
             </p>
         </div>
 
