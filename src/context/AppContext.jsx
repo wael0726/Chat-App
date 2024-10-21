@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
-
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
     const [chatData, setChatData] = useState(null);
