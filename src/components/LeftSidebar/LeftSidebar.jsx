@@ -38,7 +38,6 @@ const LeftSidebar = () => {
         }
 
     const addChat = async () => {
-        //const messagesRef = collection
     }
 
   return (
