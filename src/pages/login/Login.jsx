@@ -2,6 +2,8 @@ import { useState } from 'react'
 import "./Login.css"
 import assets from '../../assets/assets'
 import { signup, login, resetPass } from '../../config/firebase'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { auth } from '../../config/firebase';
 
 const Login = () => {
 
@@ -20,6 +22,11 @@ const Login = () => {
     }
   }
 
+  const handleGoogle = async () => {
+    const provider = await new GoogleAuthProvider();
+    return signInWithPopup(auth, provider)
+  }
+
   return (
     <div className='login'>
       <img src={assets.logo_big} alt="" className='logo logo-floating'/>
@@ -33,6 +40,7 @@ const Login = () => {
         <button type='submit'>
           {currState === "Sign up" ? "Create account" : "Login"}
         </button>
+        <button onClick = {handleGoogle} className='mx-auto border-4 bg-green-500'>Sign In With Google</button>
         <div className="login-term">
           <input type="checkbox" />
           <p>

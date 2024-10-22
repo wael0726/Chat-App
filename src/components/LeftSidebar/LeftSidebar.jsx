@@ -161,12 +161,11 @@ const LeftSidebar = () => {
                     <div className='friends add-user'>
                         <img src={user.avatar} alt="" />
                         <p>{user.name}</p>
-                        {/* Ajout du bouton add_icon.png */}
                         <img
-                            src={assets.add_icon} // Ajouter le chemin vers l'image add_icon.png dans ton fichier assets.js
+                            src={assets.add_icon} 
                             alt="Add User"
                             className="add-icon"
-                            onClick={addChat} // Appel de la fonction addChat au clic
+                            onClick={addChat} 
                         />
                     </div>
                 ) : (
